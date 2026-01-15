@@ -1,0 +1,36 @@
+/* Reset đơn giản + dark theme nền */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #020617; /* slate-950 */
+  color: #e5e7eb;
+}
+
+/* Để AntD layout full width, không căn giữa như Vite mặc định */
+#root {
+  min-height: 100vh;
+}
+
+/* Tùy chọn: link màu dễ nhìn trên nền tối */
+a {
+  color: #60a5fa;
+}
+
+a:hover {
+  color: #93c5fd;
+}

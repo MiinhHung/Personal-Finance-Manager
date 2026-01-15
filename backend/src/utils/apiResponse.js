@@ -1,0 +1,18 @@
+// Chuẩn hóa response để code nhìn "enterprise" hơn
+
+exports.successResponse = (res, data = {}, statusCode = 200) => {
+  return res.status(statusCode).json({
+    success: true,
+    data,
+  });
+};
+
+exports.errorResponse = (res, { code = 'ERROR', message = 'Error', statusCode = 400 }) => {
+  return res.status(statusCode).json({
+    success: false,
+    error: {
+      code,
+      message,
+    },
+  });
+};
