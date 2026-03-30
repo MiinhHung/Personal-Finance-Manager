@@ -1,0 +1,143 @@
+﻿
+> frontend@0.0.0 build
+> vite build
+
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mâœ“[39m 4131 modules transformed.
+node.exe : [31mâœ—[39m 
+Build failed in 9.36s
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (  
+  [31mâœ—[39m Build fa   
+ iled in 9.36s:String)    
+ [], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+[31merror during build:
+[31msrc/pages/AIInsightsP
+age.jsx (3:24): 
+"SparklesOutlined" is not 
+exported by "node_modules/
+@ant-design/icons/es/index
+.js", imported by "src/pag
+es/AIInsightsPage.jsx".[3
+1m
+file: [36mC:/Users/Min Ho
+/Downloads/Personal-Financ
+e-Manager-main/Personal-Fi
+nance-Manager-main/fronten
+d/src/pages/AIInsightsPage
+.jsx:3:24[31m
+[33m
+1: import React, { 
+useEffect, useState } 
+from 'react';
+2: import { Typography, 
+Row, Col, Card, Skeleton, 
+Empty, Alert, Space, 
+Divider } from 'antd';
+3: import { 
+RobotOutlined, 
+SparklesOutlined, 
+InfoCircleOutlined } from 
+'@ant-design/icons';
+                          
+ ^
+4: import aiApi from 
+'../api/aiApi';
+5: import PageContainer 
+from '../components/layout
+/PageContainer';
+[31m
+    at getRollupError (fil
+e:///C:/Users/Min%20Ho/Dow
+nloads/Personal-Finance-Ma
+nager-main/Personal-Financ
+e-Manager-main/frontend/no
+de_modules/rollup/dist/es/
+shared/parseAst.js:401:41)
+    at error (file:///C:/U
+sers/Min%20Ho/Downloads/Pe
+rsonal-Finance-Manager-mai
+n/Personal-Finance-Manager
+-main/frontend/node_module
+s/rollup/dist/es/shared/pa
+rseAst.js:397:42)
+    at Module.error (file:
+///C:/Users/Min%20Ho/Downl
+oads/Personal-Finance-Mana
+ger-main/Personal-Finance-
+Manager-main/frontend/node
+_modules/rollup/dist/es/sh
+ared/node-entry.js:17022:1
+6)
+    at 
+Module.traceVariable (file
+:///C:/Users/Min%20Ho/Down
+loads/Personal-Finance-Man
+ager-main/Personal-Finance
+-Manager-main/frontend/nod
+e_modules/rollup/dist/es/s
+hared/node-entry.js:17478:
+29)
+    at 
+ModuleScope.findVariable (
+file:///C:/Users/Min%20Ho/
+Downloads/Personal-Finance
+-Manager-main/Personal-Fin
+ance-Manager-main/frontend
+/node_modules/rollup/dist/
+es/shared/node-entry.js:15
+141:39)
+    at FunctionScope.findV
+ariable (file:///C:/Users/
+Min%20Ho/Downloads/Persona
+l-Finance-Manager-main/Per
+sonal-Finance-Manager-main
+/frontend/node_modules/rol
+lup/dist/es/shared/node-en
+try.js:5688:38)
+    at FunctionBodyScope.f
+indVariable (file:///C:/Us
+ers/Min%20Ho/Downloads/Per
+sonal-Finance-Manager-main
+/Personal-Finance-Manager-
+main/frontend/node_modules
+/rollup/dist/es/shared/nod
+e-entry.js:5688:38)
+    at Identifier.bind (fi
+le:///C:/Users/Min%20Ho/Do
+wnloads/Personal-Finance-M
+anager-main/Personal-Finan
+ce-Manager-main/frontend/n
+ode_modules/rollup/dist/es
+/shared/node-entry.js:5462
+:40)
+    at 
+CallExpression.bind (file:
+///C:/Users/Min%20Ho/Downl
+oads/Personal-Finance-Mana
+ger-main/Personal-Finance-
+Manager-main/frontend/node
+_modules/rollup/dist/es/sh
+ared/node-entry.js:2825:28
+)
+    at 
+CallExpression.bind (file:
+///C:/Users/Min%20Ho/Downl
+oads/Personal-Finance-Mana
+ger-main/Personal-Finance-
+Manager-main/frontend/node
+_modules/rollup/dist/es/sh
+ared/node-entry.js:12172:1
+5)[39m

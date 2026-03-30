@@ -5,7 +5,7 @@ import { ConfigProvider, theme } from 'antd';
 import App from './App.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import 'antd/dist/reset.css'; // Import reset CSS của AntD
-import './index.css';
+import './style.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

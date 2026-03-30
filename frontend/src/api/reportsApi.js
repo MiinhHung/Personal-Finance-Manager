@@ -13,6 +13,12 @@ const reportsApi = {
       params: { from, to, type }, // type: 'income' | 'expense'
     });
   },
+
+  getTrend({ from, to, groupBy }) {
+    return axiosClient.get('/reports/trend', {
+      params: { from, to, groupBy }, // groupBy: 'day' | 'week' | 'month' | 'year'
+    });
+  },
 };
 
 export default reportsApi;

@@ -39,4 +39,19 @@ router.get(
   reportsController.getByCategory
 );
 
+// GET /api/reports/trend?from=...&to=...&groupBy=day|week|month|year
+router.get(
+  '/trend',
+  [
+    query('from').notEmpty().withMessage('from is required').isISO8601().withMessage('from must be a valid date'),
+    query('to').notEmpty().withMessage('to is required').isISO8601().withMessage('to must be a valid date'),
+    query('groupBy')
+      .optional()
+      .isIn(['day', 'week', 'month', 'year'])
+      .withMessage('groupBy must be one of: day, week, month, year'),
+  ],
+  validateRequest,
+  reportsController.getTrend
+);
+
 module.exports = router;

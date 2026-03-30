@@ -28,3 +28,17 @@ exports.getByCategory = async (req, res, next) => {
     return next(err);
   }
 };
+
+// GET /api/reports/trend?from=...&to=...&groupBy=day|week|month|year
+exports.getTrend = async (req, res, next) => {
+  try {
+    const userId = req.user.userId;
+    const { from, to, groupBy } = req.query;
+
+    const data = await reportsService.getTrendData(userId, { from, to, groupBy });
+
+    return successResponse(res, { trend: data }, 200);
+  } catch (err) {
+    return next(err);
+  }
+};

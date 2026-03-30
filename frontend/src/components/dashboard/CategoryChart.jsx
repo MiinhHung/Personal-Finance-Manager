@@ -16,11 +16,15 @@ function formatCurrency(amount) {
 
 function CategoryChart({ data }) {
   if (!data || data.length === 0) {
-    return <p>No expense data for this period.</p>;
+    return (
+      <div style={{ height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
+        Không có dữ liệu chi tiêu trong khoảng thời gian này
+      </div>
+    );
   }
 
   const chartData = data.map((item) => ({
-    name: item.categoryName || 'Uncategorized',
+    name: item.categoryName || 'Chưa phân loại',
     value: item.totalAmount,
   }));
 

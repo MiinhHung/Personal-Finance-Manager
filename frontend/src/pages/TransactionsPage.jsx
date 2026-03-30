@@ -175,14 +175,14 @@ function TransactionsPage() {
   return (
     <PageContainer>
       <Title level={3} style={{ marginBottom: 16 }}>
-        Giao dịch
+        Quản lý Giao dịch
       </Title>
 
       {/* Bộ lọc */}
-      <Card title="Bộ lọc" style={{ marginBottom: 16 }}>
+      <Card title="Bộ lọc tìm kiếm" style={{ marginBottom: 16 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ flex: '1 1 160px' }}>
-            <label>Kiểu</label>
+            <label>Phân loại</label>
             <select
               name="type"
               value={filters.type}
@@ -201,6 +201,7 @@ function TransactionsPage() {
               onChange={handleDateRangeChange}
               style={{ width: '100%', marginTop: 4 }}
               format="YYYY-MM-DD"
+              placeholder={['Từ ngày', 'Đến ngày']}
             />
           </div>
         </div>
@@ -222,9 +223,9 @@ function TransactionsPage() {
       {/* Danh sách + phân trang */}
       <Card
         title="Danh sách giao dịch"
-        extra={<Text>Tổng: {totalCount}</Text>}
+        extra={<Text>Tổng số: {totalCount}</Text>}
       >
-        {loading && <p>Đang tải...</p>}
+        {loading && <p>Đang tải dữ liệu...</p>}
         {errorMessage && !loading && (
           <p style={{ color: 'red', marginBottom: 8 }}>{errorMessage}</p>
         )}
@@ -240,18 +241,20 @@ function TransactionsPage() {
                 type="button"
                 disabled={page <= 1}
                 onClick={() => fetchTransactions(page - 1)}
+                style={btnStyle}
               >
-                Trước
+                Trang trước
               </button>
-              <span>
+              <span style={{ alignSelf: 'center' }}>
                 Trang {page} / {totalPages}
               </span>
               <button
                 type="button"
                 disabled={page >= totalPages}
                 onClick={() => fetchTransactions(page + 1)}
+                style={btnStyle}
               >
-                Kế tiếp
+                Trang sau
               </button>
             </div>
           </>
@@ -269,6 +272,15 @@ const inputStyle = {
   backgroundColor: '#020617',
   border: '1px solid #4b5563',
   color: '#f9fafb',
+};
+
+const btnStyle = {
+  padding: '6px 12px',
+  cursor: 'pointer',
+  backgroundColor: '#1f2937',
+  color: '#e5e7eb',
+  border: '1px solid #374151',
+  borderRadius: '4px',
 };
 
 export default TransactionsPage;

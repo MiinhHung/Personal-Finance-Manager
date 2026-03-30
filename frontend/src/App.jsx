@@ -7,6 +7,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import MainLayout from './components/layout/MainLayout';
 import CategoriesPage from './pages/CategoriesPage';
+import AIInsightsPage from './pages/AIInsightsPage';
 
 function App() {
   return (
@@ -48,6 +49,17 @@ function App() {
           </ProtectedRoute>
         }
       /> 
+
+      <Route
+        path="/ai-insights"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <AIInsightsPage />
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

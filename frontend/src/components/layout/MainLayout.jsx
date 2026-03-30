@@ -5,6 +5,7 @@ import {
   TransactionOutlined,
   TagsOutlined,
   LogoutOutlined,
+  RobotOutlined,
 } from '@ant-design/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -20,6 +21,7 @@ function MainLayout({ children }) {
     if (location.pathname.startsWith('/dashboard')) return 'dashboard';
     if (location.pathname.startsWith('/transactions')) return 'transactions';
     if (location.pathname.startsWith('/categories')) return 'categories';
+    if (location.pathname.startsWith('/ai-insights')) return 'ai-insights';
     return 'dashboard';
   })();
 
@@ -32,6 +34,7 @@ function MainLayout({ children }) {
     if (key === 'dashboard') navigate('/dashboard');
     if (key === 'transactions') navigate('/transactions');
     if (key === 'categories') navigate('/categories');
+    if (key === 'ai-insights') navigate('/ai-insights');
   };
 
   return (
@@ -48,7 +51,7 @@ function MainLayout({ children }) {
             fontSize: 18,
           }}
         >
-          Finance
+          Tài chính
         </div>
         <Menu
           theme="dark"
@@ -59,17 +62,22 @@ function MainLayout({ children }) {
             {
               key: 'dashboard',
               icon: <HomeOutlined />,
-              label: 'Dashboard',
+              label: 'Tổng quan',
             },
             {
               key: 'transactions',
               icon: <TransactionOutlined />,
-              label: 'Transactions',
+              label: 'Giao dịch',
             },
             {
               key: 'categories',
               icon: <TagsOutlined />,
-              label: 'Categories',
+              label: 'Danh mục',
+            },
+            {
+              key: 'ai-insights',
+              icon: <RobotOutlined />,
+              label: 'Gợi ý AI',
             },
             {
               type: 'divider',
@@ -78,7 +86,7 @@ function MainLayout({ children }) {
               key: 'logout',
               icon: <LogoutOutlined />,
               danger: true,
-              label: 'Logout',
+              label: 'Đăng xuất',
             },
           ]}
         />
@@ -95,10 +103,10 @@ function MainLayout({ children }) {
           }}
         >
           <Typography.Title level={4} style={{ margin: 0, color: '#e5e7eb' }}>
-            Personal Finance Manager
+            Quản lý Tài chính Cá nhân
           </Typography.Title>
           <Typography.Text style={{ color: '#e5e7eb' }}>
-            Hello, <strong>{user?.fullName}</strong>
+            Xin chào, <strong>{user?.fullName}</strong>
           </Typography.Text>
         </Header>
         <Content style={{ margin: 16 }}>

@@ -3,7 +3,8 @@ const healthController = require('../controllers/health.controller');
 const authRoutes = require('./auth.routes');
 const categoriesRoutes = require('./categories.routes');
 const transactionsRoutes = require('./transactions.routes');
-const reportsRoutes = require('./reports.routes'); // sẽ tạo sau, tạm thời chưa có cũng được (hoặc thêm sau)
+const reportsRoutes = require('./reports.routes');
+const aiRoutes = require('./ai.routes');
 
 const router = express.Router();
 
@@ -20,5 +21,6 @@ router.use('/categories', categoriesRoutes);
 router.use('/transactions', transactionsRoutes);
 
 router.use('/reports', reportsRoutes);
+router.use('/ai', aiRoutes);
 
 module.exports = router;

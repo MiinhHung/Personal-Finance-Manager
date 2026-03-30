@@ -90,6 +90,44 @@ class ReportsService {
       totalAmount: Number(row.TotalAmount),
     }));
   }
+
+  // Lấy dữ liệu xu hướng (Trend)
+  async getTrendData(userId, { groupBy, from, to }) {
+    const validGroups = ['day', 'week', 'month', 'year'];
+    const group = groupBy ? groupBy.toLowerCase() : 'day';
+
+    if (!validGroups.includes(group)) {
+      const err = new Error('groupBy must be one of: day, week, month, year');
+      err.statusCode = 400;
+      err.code = 'INVALID_GROUP_BY';
+      throw err;
+    }
+
+    if (!from || !to) {
+      const err = new Error('from and to are required (YYYY-MM-DD)');
+      err.statusCode = 400;
+      err.code = 'DATE_RANGE_REQUIRED';
+      throw err;
+    }
+
+    const fromDate = new Date(from);
+    const toDate = new Date(to);
+
+    if (Number.isNaN(fromDate.getTime()) || Number.isNaN(toDate.getTime())) {
+      const err = new Error('from/to must be valid dates (YYYY-MM-DD)');
+      err.statusCode = 400;
+      err.code = 'INVALID_DATE_RANGE';
+      throw err;
+    }
+
+    const rows = await reportsRepository.getTrendData(userId, group, fromDate, toDate);
+
+    return rows.map((row) => ({
+      period: row.period || row.Period,
+      totalIncome: Number(row.totalIncome || row.TotalIncome),
+      totalExpense: Number(row.totalExpense || row.TotalExpense),
+    }));
+  }
 }
 
 module.exports = new ReportsService();

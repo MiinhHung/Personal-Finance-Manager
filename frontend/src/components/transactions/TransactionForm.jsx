@@ -65,31 +65,31 @@ function TransactionForm({ categories, onSubmit, onCancelEdit, editingTransactio
   return (
     <div style={{ marginBottom: 24, padding: 16, border: '1px solid #374151', borderRadius: 8 }}>
       <h3 style={{ marginBottom: 12 }}>
-        {editingTransaction ? 'Edit Transaction' : 'Add Transaction'}
+        {editingTransaction ? 'Sửa giao dịch' : 'Thêm giao dịch mới'}
       </h3>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
         <div style={{ flex: '1 1 120px' }}>
-          <label>Type</label>
+          <label>Loại</label>
           <select
             name="type"
             value={form.type}
             onChange={handleChange}
             style={inputStyle}
           >
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
+            <option value="income">Thu nhập</option>
+            <option value="expense">Chi phí</option>
           </select>
         </div>
 
         <div style={{ flex: '1 1 160px' }}>
-          <label>Category</label>
+          <label>Danh mục</label>
           <select
             name="categoryId"
             value={form.categoryId}
             onChange={handleChange}
             style={inputStyle}
           >
-            <option value="">-- Select --</option>
+            <option value="">-- Chọn danh mục --</option>
             {filteredCategories.map((c) => (
               <option key={c.categoryId} value={c.categoryId}>
                 {c.name}
@@ -99,7 +99,7 @@ function TransactionForm({ categories, onSubmit, onCancelEdit, editingTransactio
         </div>
 
         <div style={{ flex: '1 1 140px' }}>
-          <label>Amount</label>
+          <label>Số tiền</label>
           <input
             type="number"
             name="amount"
@@ -108,12 +108,12 @@ function TransactionForm({ categories, onSubmit, onCancelEdit, editingTransactio
             style={inputStyle}
             required
             min="0"
-            step="0.01"
+            placeholder="0"
           />
         </div>
 
         <div style={{ flex: '1 1 160px' }}>
-          <label>Date</label>
+          <label>Ngày</label>
           <input
             type="date"
             name="transactionDate"
@@ -125,13 +125,14 @@ function TransactionForm({ categories, onSubmit, onCancelEdit, editingTransactio
         </div>
 
         <div style={{ flex: '1 1 220px' }}>
-          <label>Description</label>
+          <label>Mô tả / Ghi chú</label>
           <input
             type="text"
             name="description"
             value={form.description}
             onChange={handleChange}
             style={inputStyle}
+            placeholder="Ví dụ: Ăn trưa, Lương tháng 1..."
           />
         </div>
 
@@ -139,13 +140,13 @@ function TransactionForm({ categories, onSubmit, onCancelEdit, editingTransactio
           <button
             type="submit"
             disabled={submitting}
-            style={{ padding: '8px 16px', marginRight: 8 }}
+            style={btnStyle}
           >
-            {submitting ? 'Saving...' : editingTransaction ? 'Update' : 'Add'}
+            {submitting ? 'Đang lưu...' : editingTransaction ? 'Cập nhật' : 'Thêm giao dịch'}
           </button>
           {editingTransaction && (
-            <button type="button" onClick={onCancelEdit} style={{ padding: '8px 16px' }}>
-              Cancel
+            <button type="button" onClick={onCancelEdit} style={{ ...btnStyle, marginLeft: 8 }}>
+              Hủy
             </button>
           )}
         </div>
@@ -162,6 +163,15 @@ const inputStyle = {
   backgroundColor: '#111827',
   border: '1px solid #4b5563',
   color: '#f9fafb',
+};
+
+const btnStyle = {
+  padding: '8px 16px',
+  backgroundColor: '#3b82f6',
+  color: '#ffffff',
+  border: 'none',
+  borderRadius: '4px',
+  cursor: 'pointer',
 };
 
 export default TransactionForm;
