@@ -36,11 +36,21 @@ Users can register, log in, manage income/expense transactions, create custom ca
 
 ### Transactions
 
-![Transactions](docs/screenshots/transactions.png)
+![Transactions](docs/screenshots/transactions.jpeg)
 
 ### Categories
 
 ![Categories](docs/screenshots/categories.png)
+
+### Authentication & Security
+*Modern Glassmorphism UI with Password Strength indicators*
+
+![Login & Register](docs/screenshots/login-register.jpeg)
+
+### AI Insights
+*Smart financial advisor using Google Gemini*
+
+![AI Assistant](docs/screenshots/AI%20Assistant.png)
 
 ## Getting Started
 
